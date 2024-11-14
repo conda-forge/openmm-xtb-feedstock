@@ -31,6 +31,7 @@ requirements:
     - openmm >=8.1.1
     - xtb
     - swig                                   # [not arm64]
+    - setuptools
   run:
     - python
     - {{ pin_compatible('openmm', min_pin='x.x', max_pin='x.x') }}
