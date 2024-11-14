@@ -34,6 +34,7 @@ requirements:
     - setuptools
   run:
     - python
+    - setuptools
     - {{ pin_compatible('openmm', min_pin='x.x', max_pin='x.x') }}
     - {{ pin_compatible('xtb', min_pin='x.x', max_pin='x.x') }}
 
