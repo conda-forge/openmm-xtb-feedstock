@@ -1,17 +1,17 @@
 {% set name = "openmm-xtb" %}
-{% set version = "0.1" %}
+{% set version = "0.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/openmm/openmm-xtb/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 94778d570977f2f67df9330775c01b749bf6323cae76120067e39fc8601ed9f6
+  git_url: https://github.com/openmm/{{ name }}.git
+  git_rev: "52d4373"
 
 build:
-  number: 2
-  skip: true  # [win]
+  number: 0
+  skip: true  # [win or py<310]
 
 requirements:
   build:
@@ -31,8 +31,10 @@ requirements:
     - openmm >=8.1.1
     - xtb
     - swig                                   # [not arm64]
+    - setuptools
   run:
     - python
+    - setuptools
     - {{ pin_compatible('openmm', min_pin='x.x', max_pin='x.x') }}
     - {{ pin_compatible('xtb', min_pin='x.x', max_pin='x.x') }}
 
