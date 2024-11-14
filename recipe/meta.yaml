@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [win]
+  skip: true  # [win or py<310]
 
 requirements:
   build:
@@ -44,8 +44,6 @@ test:
   commands: |
     cd ${PREFIX}/share/openmm-xtb/tests
     set +e
-    python -c "from openmm.app import *; print(forcefield._getDataDirectories())"
-    python -c "from importlib.metadata import entry_points; print([entry.load()() for entry in entry_points().select(group='openmm.forcefielddir')])"
     for f in Test*; do
       if ! [[ $f =~ py$ ]]; then
         ./${f}
