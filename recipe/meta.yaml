@@ -1,5 +1,5 @@
 {% set name = "openmm-xtb" %}
-{% set version = "0.2" %}
+{% set version = "0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   git_url: https://github.com/openmm/{{ name }}.git
-  git_rev: "52d4373"
+  git_rev: "cf09e2c"
 
 build:
   number: 0
